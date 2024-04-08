@@ -22,7 +22,7 @@ bot.command('getpic',async (ctx)=>{
     ctx.deleteMessage(msg.message_id);
     return;
   }
-  ctx.replyWithPhoto(picLink);
+  await ctx.replyWithPhoto(picLink);
   ctx.deleteMessage(msg.message_id);
   
 })
