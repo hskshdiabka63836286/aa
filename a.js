@@ -14,7 +14,7 @@ const getPic = (idLink)=>{
 const regex = /profilePicLarge":{"uri":"(.*?)"/;
 const match = res.match(regex);
 if (match) {
-    const substring = eval(`\`match[1]\``)/ // This will contain the substring you're looking for
+    const substring = eval(`\`match[1]\``); // This will contain the substring you're looking for
     return substring;
 } else {
     return false;
