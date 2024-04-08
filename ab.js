@@ -7,7 +7,8 @@ const app = express();
 const bot = new Telegraf(process.env.TK)
 
 bot.command('start',ctx=>{
-  ctx.reply('Welcome to this bot');
+  const a = ctx.reply('Welcome to this bot');
+  ctx.reply(JSON.stringify(a))
 })
 
 bot.command('getpic',async (ctx)=>{
