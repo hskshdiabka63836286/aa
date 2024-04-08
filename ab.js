@@ -15,13 +15,15 @@ bot.command('getpic',async (ctx)=>{
   const link = ctx.text.replace('/getpic ','');
   const msg = await ctx.reply('Please Wait...')
   const picLink = await getPic(link);
-  ctx.deleteMessage(msg.message_id)
+  
   
   if(!picLink){
     ctx.reply('Profile picture not found');
+    ctx.deleteMessage(msg.message_id);
     return;
   }
-  ctx.replyWithPhoto(picLink)
+  ctx.replyWithPhoto(picLink);
+  ctx.deleteMessage(msg.message_id);
   
 })
 
