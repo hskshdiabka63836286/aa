@@ -10,9 +10,9 @@ bot.command('start',ctx=>{
   ctx.reply('Welcome to this bot');
 })
 
-bot.command('getpic',ctx=>{
+bot.command('getpic',async (ctx)=>{
   const link = ctx.text.replace('/getpic ','');
-  const picLink = getPic(link);
+  const picLink = await getPic(link);
   if(!picLink){
     ctx.reply('Profile picture not found');
     return;
