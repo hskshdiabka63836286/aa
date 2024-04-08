@@ -13,11 +13,13 @@ bot.command('start',ctx=>{
 bot.command('getpic',async (ctx)=>{
   const link = ctx.text.replace('/getpic ','');
   const picLink = await getPic(link);
+  ctx.reply(picLink)
   if(!picLink){
     ctx.reply('Profile picture not found');
     return;
   }
-  ctx.replyWithPhoto(picLink)
+  //ctx.replyWithPhoto(picLink)
+  
 })
 
 app.listen(3000)
