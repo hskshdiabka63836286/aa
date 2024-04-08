@@ -1,5 +1,8 @@
 const {Telegraf} = require('telegraf');
 const {getPic} = require('./a');
+const express = require('express');
+
+const app = express();
 
 const bot = new Telegraf(process.env.TK)
 
@@ -17,4 +20,5 @@ bot.command('getpic',ctx=>{
   ctx.replyWithPhoto(picLink)
 })
 
+app.listen(3000)
 bot.launch()
