@@ -7,7 +7,7 @@ const app = express();
 const bot = new Telegraf(process.env.TK)
 
 bot.command('start',ctx=>{
-  const a = ctx.reply('Welcome to this bot');
+  const a = await ctx.reply('Welcome to this bot');
   ctx.reply(JSON.stringify(a))
 })
 
