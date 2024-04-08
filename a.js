@@ -1,5 +1,5 @@
-const getPic = (idLink)=>{
-  fetch(idLink,{
+const getPic = async (idLink)=>{
+  const req = await fetch(idLink,{
     headers:{
       'accept':'text/html',
       'dpr':'1000',
@@ -8,9 +8,9 @@ const getPic = (idLink)=>{
       
     }
   })
- .then(x=>{return x.text()})
- .then(res=>{
-   
+
+  const res = await req.text();
+  
 const regex = /profilePicLarge":{"uri":"(.*?)"/;
 const match = res.match(regex);
 if (match) {
@@ -20,7 +20,7 @@ if (match) {
     return false;
 }
 
- })
-}
+
+ }
 
 module.exports = {getPic}
