@@ -15,7 +15,7 @@ const regex = /profilePicLarge":{"uri":"(.*?)"/;
 const match = res.match(regex);
 if (match) {
     const substring = eval(`\`match[1]\``)/ // This will contain the substring you're looking for
-    return sunstring;
+    return substring;
 } else {
     return false;
 }
