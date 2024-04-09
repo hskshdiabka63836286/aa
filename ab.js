@@ -13,16 +13,17 @@ bot.command('start',async(ctx)=>{
 
 bot.command('getpic',async (ctx)=>{
   const link = ctx.text.replace('/getpic ','');
-  const msg = await ctx.reply('Please Wait...')
+  const msg = await ctx.reply('Downloading Photo...')
   const picLink = await getPic(link);
   
   
   if(!picLink){
-    ctx.deleteMessage(msg.message_id);
-    ctx.reply('Profile picture not found');
+    await ctx.deleteMessage(msg.message_id);
+    await ctx.reply('Profile picture not found');
     
     return;
   }
+  await ctx.editMessageText(msg.message_id,"Uploading To Telegram...");
   await ctx.replyWithPhoto(picLink);
   await ctx.deleteMessage(msg.message_id);
   
