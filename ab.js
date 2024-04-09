@@ -23,7 +23,7 @@ bot.command('getpic',async (ctx)=>{
     
     return;
   }
-  await ctx.editMessageText(msg.message_id,"Uploading To Telegram...");
+  await ctx.editMessageText(ctx.chat.id,msg.message_id,null,"Uploading To Telegram...");
   await ctx.replyWithPhoto(picLink);
   await ctx.deleteMessage(msg.message_id);
   
