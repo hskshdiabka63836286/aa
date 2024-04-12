@@ -1,6 +1,6 @@
 const makeRequest = async (link,cookie) => {
   try{
-    const req = await fetch(id,{
+    const req = await fetch(link,{
       headers:{
         accept:'text/html',
         dpr:'100000',
@@ -24,13 +24,13 @@ const getLink = async (link)=>{
   let regex = /profilePicLarge":{"uri":"(.*?)"/;
   const match = res.match(regex);
   if(!match){
-    res = makeRequest(link,cookie);
+    res = await makeRequest(link,cookie);
   }
   if(!res){return false}
   
-  const pp = (res.match(regex))[1];
+  const pp = eval(`\`${(res.match(regex))[1]}\``);
   regex = /image":{"uri":"(.*?)"/
-  const cp = (res.match(regex))[1];
+  const cp = eval(`\`${(res.match(regex))[1]}\``);
 
   return {cp,pp}
   
