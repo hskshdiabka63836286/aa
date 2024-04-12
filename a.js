@@ -29,4 +29,4 @@ const getLink = async (link)=>{
   return res;
 }
 
-module.exports = {res}
+module.exports = {getLink}
