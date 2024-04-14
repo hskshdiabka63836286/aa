@@ -18,6 +18,7 @@ const makeRequest = async (link,cookie) => {
 }
 
 const getLink = async (link)=>{
+  try{
   const cookie = 'c_user=61558439399202; xs=27%3AuENHDylv62yRUg%3A2%3A1712928445%3A-1%3A-1;'
   let res = await makeRequest(link);
   
@@ -34,6 +35,9 @@ const getLink = async (link)=>{
   const cp = eval(`\`${(res.match(regex))[1]}\``);
 
   return {cp,pp}
+  }catch(e){
+    return false;
+  }
   
   
   
