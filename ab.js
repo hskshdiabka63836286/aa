@@ -20,7 +20,7 @@ bot.command('getpic',async (ctx)=>{
   const pics = await getPic(link);
   
   
-  if(!picLink){
+  if(!pics){
     await ctx.deleteMessage(msg.message_id);
     await ctx.reply('Profile picture not found');
     return;
