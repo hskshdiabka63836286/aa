@@ -30,7 +30,7 @@ bot.command('getpic',async (ctx)=>{
   await ctx.replyWithPhoto(pics.cp);
   await ctx.deleteMessage(msg.message_id);
   }catch(e){
-    bot.telegram.sendMessage(adminId,JSON.stringify(e));
+   // bot.telegram.sendMessage(adminId,JSON.stringify(e));
     ctx.reply('Something went wrong!');
   }
   
