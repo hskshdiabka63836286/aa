@@ -1,5 +1,5 @@
 const {Telegraf,Markup} = require('telegraf');
-const {getPic} = require('./a');
+const {getLink} = require('./a');
 const express = require('express');
 
 const app = express();
@@ -17,7 +17,7 @@ bot.command('getpic',async (ctx)=>{
   try{
   const link = ctx.text.replace('/getpic ','');
   const msg = await ctx.reply('Downloading Photo...')
-  const pics = await getPic(link);
+  const pics = await getLink(link);
   
   
   if(!pics){
