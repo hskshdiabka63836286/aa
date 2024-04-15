@@ -21,6 +21,7 @@ bot.hears('Get Profile Picture And Cover Photo',(ctx)=>{
 })
 bot.on('text',async (ctx)=>{
   
+    ctx.reply(ctx.session.link);
   if(ctx.session.link){
   try{
     
@@ -43,6 +44,7 @@ bot.on('text',async (ctx)=>{
     ctx.reply('Something went wrong!');
   }
     ctx.session.link = false;
+    ctx.reply(ctx.session.link);
   }
   
 })
