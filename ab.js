@@ -15,7 +15,7 @@ bot.command('start',(ctx)=>{
   
 })
 
-bot.hears('',()=>{
+bot.hears('Get Profile Picture And Cover Photo',()=>{
   ctx.session.link = true;
   ctx.reply("Enter Your Profile Link")
 })
