@@ -1,3 +1,4 @@
+const Session = require('telegraf-session-local')
 const {Telegraf,Markup} = require('telegraf');
 const {getLink} = require('./a');
 const express = require('express');
@@ -5,6 +6,7 @@ const express = require('express');
 const app = express();
 
 const bot = new Telegraf(process.env.TK)
+bot.use((new Session({database:'dt.json'})).middleware());
 
 const adminId = process.env.ADMIN_ID;
 
@@ -13,9 +15,16 @@ bot.command('start',(ctx)=>{
   
 })
 
-bot.command('getpic',async (ctx)=>{
+bot.hears('',()=>{
+  ctx.session.link = true;
+  ctx.reply("Enter Your Profile Link")
+})
+bot.on('text',async (ctx)=>{
+  
+  if(ctx.session.link){
   try{
-  const link = ctx.text.replace('/getpic ','');
+    
+  const link = ctx.message.text;
   const msg = await ctx.reply('Downloading Photo...')
   const pics = await getLink(link);
   
@@ -32,6 +41,8 @@ bot.command('getpic',async (ctx)=>{
   }catch(e){
    // bot.telegram.sendMessage(adminId,JSON.stringify(e));
     ctx.reply('Something went wrong!');
+  }
+    ctx.session.link = false;
   }
   
 })
