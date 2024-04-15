@@ -11,8 +11,12 @@ bot.use((new Session({database:'dt.json'})).middleware());
 const adminId = process.env.ADMIN_ID;
 
 bot.command('start',(ctx)=>{
-  ctx.reply('Welcome to FB Hax Bot\nGet any facebook profile\'s profile picture and cover photo easily.\n\nDeveloped By @techztricks',Markup.keyboard([['Get Profile Picture And Cover Photo','About']]).oneTime().resize());
+  ctx.reply('Welcome to FB Hax Bot\nGet any facebook profile\'s profile picture and cover photo easily.\n\nDeveloped By @techztricks',Markup.keyboard([['Get Profile Picture And Cover Photo','About']]).resize());
   
+})
+
+bot.hears('About',ctx=>{
+  ctx.reply("Developed By @techztricks");
 })
 
 bot.hears('Get Profile Picture And Cover Photo',(ctx)=>{
@@ -50,9 +54,7 @@ bot.on('text',async (ctx)=>{
   
 })
 
-bot.hears('About',ctx=>{
-  ctx.reply("Developed By @techztricks");
-})
+
 
 app.listen(3000)
 bot.launch()
