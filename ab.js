@@ -21,8 +21,9 @@ bot.hears('Get Profile Picture And Cover Photo',(ctx)=>{
 })
 bot.on('text',async (ctx)=>{
   
-    ctx.reply(ctx.session.link);
+    
   if(ctx.session.link){
+    ctx.session.link = false;
   try{
     
   const link = ctx.message.text;
@@ -43,8 +44,8 @@ bot.on('text',async (ctx)=>{
    // bot.telegram.sendMessage(adminId,JSON.stringify(e));
     ctx.reply('Something went wrong!');
   }
-    ctx.session.link = false;
-    ctx.reply(ctx.session.link);
+    
+    
   }
   
 })
