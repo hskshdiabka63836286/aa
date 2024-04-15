@@ -9,7 +9,7 @@ const bot = new Telegraf(process.env.TK)
 const adminId = process.env.ADMIN_ID;
 
 bot.command('start',(ctx)=>{
-  ctx.reply('Welcome to FB Hax Bot\nTo get profile picture send message in this format\n/getpic <id_link>\n\nDeveloped By @techztricks',Markup.keyboard([['Get Profile Picture And Cover Photo','About']]));
+  ctx.reply('Welcome to FB Hax Bot\nTo get profile picture send message in this format\n/getpic <id_link>\n\nDeveloped By @techztricks',Markup.keyboard([['Get Profile Picture And Cover Photo','About']]).resize());
   
 })
 
