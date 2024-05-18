@@ -19,7 +19,7 @@ const makeRequest = async (link,cookie) => {
 
 const getLink = async (link)=>{
   try{
-  const cookie = 'xs=1%3AKvzOmwPRmz91Fw%3A2%3A1716049840%3A-1%3A-1 c_user=61559593692579 '
+  const cookie = 'xs=1%3AKvzOmwPRmz91Fw%3A2%3A1716049840%3A-1%3A-1; c_user=61559593692579;'
   let res = await makeRequest(link);
   
   if(!res){return false}
